@@ -51,16 +51,14 @@
 
 ## 6. 결과물 구조
 ```
-README.md        결론 3줄 → 방법 → 재현 방법(run.sh) → 한계와 다음 단계
-REQUIREMENTS.md  문제 정의 · 요구사항 체크리스트 · 질문과 답 · 변경 이력
-NOTES.md         결정과 이유 (시간순, 한 줄씩)
-EXPERIMENTS.md   실험 기록
-VERIFICATION.md  검증 기록
-QA_PREP.md       예상 질문과 답 (확인 문제 대비)
-ENV.md           환경 기록
-run.sh           한 번에 재실행
-src/  data/raw/  data/processed/  outputs/  reports/  prompts/
+[필수: 제출물]      README.md (결론 3줄 → 방법 → 재현 방법 → 한계) · run.sh · src/ · outputs/
+[과정 증거]         NOTES.md (결정과 이유, 한 줄씩) · VERIFICATION.md (검증 기록) · reports/data_check.md
+[시작용]            REQUIREMENTS.md (문제 정의·요구사항·질문과 답·변경 이력) · ENV.md (자동 생성)
+[상황별]            EXPERIMENTS.md (모델링할 때만) · prompts/ (LLM 쓸 때만) · data/processed/ (전처리가 있을 때만)
+[사용자용]          QA_PREP.md (확인 문제 대비, T+170에 작성)
 ```
+- 문서 갱신은 단계가 끝날 때 한 번에 한다. 문서 때문에 작업 턴을 낭비하지 않는다.
+- 데이터가 이미 `data/`나 루트에 있으면 옮기지 않는다. `data/raw/`는 새로 받을 때만 쓴다.
 - 시각화나 대시보드가 필요하면 `outputs/dashboard.html` **단일 파일**로, 외부 CDN 없이(inline SVG/JS), 브라우저 미리보기로 확인한다.
 - 과제가 제출 형식을 정했으면 그 형식이 우선이다. 위 구조는 그 안에서 맞춘다.
 
