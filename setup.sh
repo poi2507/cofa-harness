@@ -22,7 +22,14 @@ set -- "${ARGS[@]+"${ARGS[@]}"}"
 cp "$H/PLAYBOOK.md" ./PLAYBOOK.md
 mkdir -p .agents/skills scripts reports outputs
 cp -r "$H/skills/." .agents/skills/
-cp "$H/scripts/envcheck.sh" scripts/
+cp "$H/scripts/envcheck.sh" "$H/scripts/data_check.py" scripts/
+for p in "$@"; do
+  if [ "$p" = automation ]; then
+    mkdir -p src tests
+    [ -f src/pipeline.py ] || cp "$H/templates/pipeline.py" src/pipeline.py
+    [ -f tests/test_pipeline.py ] || cp "$H/templates/test_pipeline.py" tests/test_pipeline.py
+  fi
+done
 for f in REQUIREMENTS NOTES EXPERIMENTS VERIFICATION QA_PREP; do
   [ -f "$f.md" ] || cp "$H/templates/$f.md" "./$f.md"
 done

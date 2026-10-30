@@ -40,6 +40,6 @@ clone이 안 되면 `AGENTS.min.md`(9줄) 내용을 작업 폴더의 `AGENTS.md`
 - `profiles/` 유형별 추가 규칙: analyze · predict · anomaly · text-llm · automation · dashboard
 - `PLAYBOOK.md` 미션 유형별 대응과 예상 질문 (시험 전 읽기용)
 - `skills/` problem-frame · data-check · baseline · verify · report · qa-prep · llm-pipeline · dashboard · no-deps
-- `templates/` REQUIREMENTS · NOTES · EXPERIMENTS · VERIFICATION · QA_PREP · run.sh
-- `scripts/envcheck.sh` 환경 기록 → ENV.md
+- `templates/` REQUIREMENTS · NOTES · EXPERIMENTS · VERIFICATION · QA_PREP · run.sh · pipeline.py + test_pipeline.py (자동화 뼈대, `automation` 프로필일 때 src/·tests/에 배치)
+- `scripts/envcheck.sh` 환경 기록 → ENV.md / `scripts/data_check.py` CSV 품질 점검 → reports/data_check.md (표준 라이브러리만)
 - `setup.sh` 위 파일을 작업 폴더에 배치

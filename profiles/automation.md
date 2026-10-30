@@ -6,7 +6,7 @@
 
 ## 필수 산출물 (T+105까지)
 1. 입력 스키마 정의 + 검증 함수(컬럼 존재·타입·필수값·중복). 실패 시 명확한 메시지
-2. 파이프라인 src/pipeline.py: 읽기 → 검증 → 변환 → 집계 → 출력
+2. 파이프라인 src/pipeline.py: 읽기 → 검증 → 변환 → 집계 → 출력. **setup.sh가 넣어 둔 뼈대(src/pipeline.py, tests/test_pipeline.py)에서 SCHEMA·KEY·transform·aggregate만 채운다.** 뼈대 테스트 5개가 먼저 통과하는지 확인
 3. 출력물: 파일(csv; xlsx 대신 csv) + 요약 텍스트 → outputs/
 4. 실행 로그 → logs/run_YYYYMMDD.log: 입력 건수, 출력 건수, 경고, 소요 시간
 5. run.sh 한 줄 실행 + 다른 입력(또는 일부 행)으로 두 번째 실행 증명
