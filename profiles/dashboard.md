@@ -10,6 +10,9 @@
 3. src/build_dashboard.py: 데이터 → JSON 인라인 → HTML 생성. run.sh에 포함
 4. README에 "이 화면으로 내리는 결정" 한 문단
 
+## 도구
+- 먼저 `python3 scripts/eda_report.py`로 그래프 후보를 뽑고, 그중 결론을 뒷받침하는 2~4개만 대시보드에 옮긴다. eda_report.py의 SVG 함수(histogram·bars·lines·heat)를 재사용해도 된다.
+
 ## 규칙
 - 외부 CDN·폰트·이미지 금지. inline SVG + 순수 JS.
 - 차트마다 제목에 결론, 축에 단위, 0부터 시작(아니면 표시).
