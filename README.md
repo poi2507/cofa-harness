@@ -5,7 +5,7 @@
 
 ## 사용
 ```
-git clone https://github.com/<id>/cofa-harness.git /tmp/h
+git clone https://github.com/poi2507/cofa-harness.git /tmp/h
 bash /tmp/h/setup.sh            # 공통 규칙만
 bash /tmp/h/setup.sh predict    # 과제를 읽고 유형을 골랐을 때 (둘 이상 가능)
 ```
