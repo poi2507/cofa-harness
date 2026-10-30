@@ -1,8 +1,20 @@
 #!/usr/bin/env bash
-# 당일 세팅. 과제 작업 폴더 안에서:  bash /tmp/h/setup.sh
+# 당일 세팅. 과제 작업 폴더 안에서 실행한다.
+#   bash /tmp/h/setup.sh                    공통 규칙만
+#   bash /tmp/h/setup.sh predict            공통 + 예측·분류 프로필
+#   bash /tmp/h/setup.sh analyze dashboard  둘 이상도 가능
+# 프로필: analyze(원인분석) predict(예측·분류) anomaly(이상탐지) text-llm(비정형 LLM) automation(자동화) dashboard(대시보드)
+# 유형을 바꾸려면 다시 실행한 뒤 Codex에서 /new (AGENTS.md는 세션 시작 때 읽는다)
 set -e
 H="$(cd "$(dirname "$0")" && pwd)"
-cp "$H/AGENTS.md" ./AGENTS.md
+{
+  cat "$H/AGENTS.md"
+  for p in "$@"; do
+    f="$H/profiles/$p.md"
+    if [ -f "$f" ]; then printf '\n---\n\n'; cat "$f"
+    else echo "프로필 없음: $p (가능: $(ls "$H/profiles" | sed 's/\.md$//' | tr '\n' ' '))" >&2; fi
+  done
+} > ./AGENTS.md
 cp "$H/PLAYBOOK.md" ./PLAYBOOK.md
 mkdir -p .agents/skills scripts reports outputs
 cp -r "$H/skills/." .agents/skills/
@@ -11,5 +23,6 @@ for f in REQUIREMENTS NOTES EXPERIMENTS VERIFICATION QA_PREP; do
   [ -f "$f.md" ] || cp "$H/templates/$f.md" "./$f.md"
 done
 [ -f run.sh ] || cp "$H/templates/run.sh" ./run.sh
-bash scripts/envcheck.sh > ENV.md 2>&1 || true
-echo "세팅 완료. 다음: codex 실행 → /status 로 AGENTS.md 반영 확인 → /skills 로 스킬 확인"
+[ -f ENV.md ] || bash scripts/envcheck.sh > ENV.md 2>&1 || true
+echo "AGENTS.md = 공통 규칙$([ $# -gt 0 ] && echo " + 프로필: $*") ($(wc -c < AGENTS.md) bytes)"
+echo "다음: codex 실행 → /status 로 AGENTS.md 반영 확인 → /skills"

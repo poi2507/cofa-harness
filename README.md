@@ -5,13 +5,16 @@
 
 ## 사용
 ```
-git clone https://github.com/<id>/cofa-harness.git /tmp/h && bash /tmp/h/setup.sh
+git clone https://github.com/<id>/cofa-harness.git /tmp/h
+bash /tmp/h/setup.sh            # 공통 규칙만
+bash /tmp/h/setup.sh predict    # 과제를 읽고 유형을 골랐을 때 (둘 이상 가능)
 ```
 clone이 안 되면 `AGENTS.min.md` 내용을 작업 폴더의 `AGENTS.md`로 직접 입력합니다.
 
 ## 구성
 - `AGENTS.md` 작업 규칙 전체 / `AGENTS.min.md` 직접 입력용 축약판
 - `PLAYBOOK.md` 미션 유형별 대응과 예상 질문
+- `profiles/` 유형별 추가 규칙: analyze · predict · anomaly · text-llm · automation · dashboard (setup.sh 인자로 선택해 AGENTS.md 뒤에 붙음)
 - `skills/` problem-frame · data-check · baseline · verify · report · qa-prep · llm-pipeline · dashboard · no-deps
 - `templates/` REQUIREMENTS · NOTES · EXPERIMENTS · VERIFICATION · QA_PREP · run.sh
 - `scripts/envcheck.sh` 환경 기록
