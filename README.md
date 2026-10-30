@@ -27,7 +27,7 @@ codex                                                             # 4. 시작 �
 clone이 안 되면 `AGENTS.min.md`(9줄) 내용을 작업 폴더의 `AGENTS.md`로 직접 입력합니다.
 
 ## Codex 안에서
-- 시작: `$problem-frame` → 데이터: `$data-check` → `$baseline` → 검증: `$verify` → 마무리: `$report`, `$qa-prep`
+- 시작: `$problem-frame` → 데이터: `$data-check` → 분할: `$test-set` → `$baseline` → 검증: `$verify` → 마무리: `$report`, `$qa-prep`
 - 패키지가 없으면 `$no-deps`, 텍스트 데이터면 `$llm-pipeline`, 화면이 필요하면 `$dashboard`
 - 말로: **"시간 체크"** / **"설명해줘 X"** / **"Q&A 준비"**
 - 스킬이 안 먹히는 버전이면 AGENTS.md만으로 같은 절차가 돌아갑니다. 첫 프롬프트: `BRIEF를 읽고 AGENTS.md의 시작 절차 1단계부터 진행해. 계획 승인 전에는 코드를 쓰지 마.`
@@ -39,7 +39,7 @@ clone이 안 되면 `AGENTS.min.md`(9줄) 내용을 작업 폴더의 `AGENTS.md`
 - `AGENTS.md` 작업 규칙 전체 / `AGENTS.min.md` 직접 입력용 축약판
 - `profiles/` 유형별 추가 규칙: analyze · predict · anomaly · text-llm · automation · dashboard
 - `PLAYBOOK.md` 미션 유형별 대응과 예상 질문 (시험 전 읽기용)
-- `skills/` problem-frame · data-check · baseline · verify · report · qa-prep · llm-pipeline · dashboard · no-deps
+- `skills/` problem-frame · data-check · test-set · baseline · verify · report · qa-prep · llm-pipeline · dashboard · no-deps
 - `templates/` REQUIREMENTS · NOTES · EXPERIMENTS · VERIFICATION · QA_PREP · run.sh · pipeline.py + test_pipeline.py (자동화 뼈대, `automation` 프로필일 때 src/·tests/에 배치)
-- `scripts/envcheck.sh` 환경 기록 → ENV.md / `scripts/data_check.py` CSV 품질 점검 → reports/data_check.md (표준 라이브러리만)
+- `scripts/envcheck.sh` 환경 기록 → ENV.md / `scripts/data_check.py` CSV 품질 점검 → reports/data_check.md / `scripts/make_split.py` 학습·검증·테스트 분할(random·stratify·time·group) → data/splits/ (모두 표준 라이브러리만)
 - `setup.sh` 위 파일을 작업 폴더에 배치

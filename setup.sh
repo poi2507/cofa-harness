@@ -22,7 +22,7 @@ set -- "${ARGS[@]+"${ARGS[@]}"}"
 cp "$H/PLAYBOOK.md" ./PLAYBOOK.md
 mkdir -p .agents/skills scripts reports outputs
 cp -r "$H/skills/." .agents/skills/
-cp "$H/scripts/envcheck.sh" "$H/scripts/data_check.py" scripts/
+cp "$H/scripts/envcheck.sh" "$H/scripts/data_check.py" "$H/scripts/make_split.py" scripts/
 for p in "$@"; do
   if [ "$p" = automation ]; then
     mkdir -p src tests
